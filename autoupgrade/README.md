@@ -30,7 +30,8 @@ The `-mode deploy` consists of a sequence of `-mode analyze`, `-mode fixups` and
 While your are waiting with a cup of coffee, you can monitor the upgrade process by
 ```
 upg> lsj
-``` and 
+```
+and 
 ```
 upg> status -job <job number shown in $lsj>
 ```
