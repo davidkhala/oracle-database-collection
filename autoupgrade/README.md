@@ -42,3 +42,13 @@ specify your target server hostname in config file with adding line
 [your-label].after_action=<your shell script> Y
 ```
 The `Y` option here to instruct AutoUpgrade halts on non-zero return code
+### Restore point
+default enabled as 
+```
+[your-label].restoration=yes
+```
+Use this to enable remove Guaranteed Restore Points when upgrade completed successfully
+```
+[your-label].drop_grp_after_upgrade=yes
+```
+
