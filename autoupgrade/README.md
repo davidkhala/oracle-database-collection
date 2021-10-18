@@ -32,5 +32,13 @@ status -job <job number shown in $lsj>
 ```
 
 ## Advanced options
-- specify your target server hostname in config file with adding line
-    - `[your-label].upgrade_node=<test_server01.mycorp.net>`
+### Different Server
+specify your target server hostname in config file with adding line
+- `[your-label].upgrade_node=<test_server01.mycorp.net>`
+
+### workflow hooker
+```
+[your-label].before_action=<your shell script> Y
+[your-label].after_action=<your shell script> Y
+```
+The `Y` option here to instruct AutoUpgrade halts on non-zero return code
