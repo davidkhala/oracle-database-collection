@@ -28,11 +28,13 @@ java -jar autoupgrade.jar -config <CDB1.cfg> -mode deploy
 The `-mode deploy` consists of a sequence of `-mode analyze`, `-mode fixups` and `-mode upgrade`
 
 While your are waiting with a cup of coffee, you can monitor the upgrade process by
-`lsj` and  
-
 ```
-status -job <job number shown in $lsj>
+upg> lsj
+``` and 
 ```
+upg> status -job <job number shown in $lsj>
+```
+**These two are command in AutoUpgrade console, not Bash** 
 or open your browser with 
 `http://<log-dir>/cfgtoollogs/upgrade/auto/state.html`
 
