@@ -24,6 +24,9 @@ Then Check the output as html.
 ```
 java -jar autoupgrade.jar -config <CDB1.cfg> -mode deploy
 ```
+
+The `-mode deploy` consists of a sequence of `-mode analyze`, `-mode fixups` and `-mode upgrade`
+
 While your are waiting with a cup of coffee, you can monitor the upgrade process by
 `lsj` and  
 
