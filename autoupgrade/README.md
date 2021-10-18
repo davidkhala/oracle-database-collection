@@ -30,6 +30,8 @@ While your are waiting with a cup of coffee, you can monitor the upgrade process
 ```
 status -job <job number shown in $lsj>
 ```
+or open your browser with 
+`http://<log-dir>/cfgtoollogs/upgrade/auto/state.html`
 
 ## Advanced options
 ### Different Server
