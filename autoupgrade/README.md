@@ -33,7 +33,7 @@ upg> lsj
 ```
 and 
 ```
-upg> status -job <job number shown in $lsj>
+upg> status -job <job number>
 ```
 **These two are command in AutoUpgrade console, not Bash** 
 or open your browser with 
