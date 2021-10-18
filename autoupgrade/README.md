@@ -31,3 +31,6 @@ While your are waiting with a cup of coffee, you can monitor the upgrade process
 status -job <job number shown in $lsj>
 ```
 
+## Advanced options
+- specify your target server hostname in config file with adding line
+    - `[your-label].upgrade_node=<test_server01.mycorp.net>`
