@@ -7,7 +7,7 @@ check the latest version from main page
 ```
 [your-label].source_home=/u01/app/oracle/product/12.2.0.1
 [your-label].target_home=/u01/app/oracle/product/19
-[your-label].sid=[point to your CDB/PDB, like CDB1]
+[your-label].sid=[SID of your CDB/PDB, like CDB1]
 ```
 
 ## Analyze
