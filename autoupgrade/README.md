@@ -25,7 +25,9 @@ Then Check the output as html.
 java -jar autoupgrade.jar -config <CDB1.cfg> -mode deploy
 ```
 While your are waiting with a cup of coffee, you can monitor the upgrade process by
+`lsj` and  
+
 ```
-lsj
+status -job <job number shown in $lsj>
 ```
 
