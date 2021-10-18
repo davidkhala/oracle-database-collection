@@ -47,7 +47,7 @@ default enabled as
 ```
 [your-label].restoration=yes
 ```
-Use this to enable remove Guaranteed Restore Points when upgrade completed successfully
+Use this to enable auto-remove Guaranteed Restore Points when upgrade completed successfully
 ```
 [your-label].drop_grp_after_upgrade=yes
 ```
