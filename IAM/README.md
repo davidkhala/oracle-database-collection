@@ -11,28 +11,15 @@
     - Run SQL as ADMiN: `EXEC DBMS_CLOUD_ADMIN.ENABLE_EXTERNAL_AUTHENTICATION ('OCI_IAM')`
     - Validate the result via SQL: `SELECT NAME, VALUE FROM V$PARAMETER WHERE NAME='identity_provider_type'`
 - 
-## 1. Create the DB user
-
-### Option: Group mapping
-choose your user name like `oci_admin` here
-
-`CREATE USER oci_admin IDENTIFIED GLOBALLY AS 'IAM_GROUP_NAME=Administrators'`
-
-
-### Option: User mapping
-choose your user name like `oci_david` here
-
-`CREATE USER oci_david IDENTIFIED GLOBALLY AS 'IAM_PRINCIPAL_NAME=david.yx.liu@oracle.com'`
-
-### 2. Grant access right
-
-
-### Validate
-Check by `SELECT USERNAME, EXTERNAL_NAME FROM DBA_USERS WHERE AUTHENTICATION_TYPE='GLOBAL';`
+## Create the DB user
+1. `CREATE USER oci_david IDENTIFIED GLOBALLY AS 'IAM_PRINCIPAL_NAME=david.yx.liu@oracle.com'`
+2. Check by `SELECT USERNAME, EXTERNAL_NAME FROM DBA_USERS WHERE AUTHENTICATION_TYPE='GLOBAL';`
+3. Run SQL `GRANT CREATE SESSION TO oci_david` to create session
+  - By default, user has `connect`, `resource` role
 
 
 
 ## Troubleshoot
-**Q: ORA-01045: user \<db username\> lacks CREATE SESSION privilege; logon denied**
-
+**Q: ORA-01045: user OCI_DAVID lacks CREATE SESSION privilege; logon denied**
+- `GRANT CREATE SESSION TO oci_david`
 
