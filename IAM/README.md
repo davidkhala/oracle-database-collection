@@ -3,8 +3,9 @@
 ## Pre-requisite
 
 - Optional: Setup DB password for this IAM user(OCI Console)
-		- Otherwise we can use IAM console password?
-    - Trick: the default DB username shows as oracleidentitycloudservice/davidkhala@gmail.com, but `/` is not a right username character.
+	- Otherwise we can use IAM console password?
+    	- Trick: the default DB username shows as oracleidentitycloudservice/davidkhala@gmail.com, but `/` is not a right username character.
+	- InvalidParameter - name must be one or more of the following characters: a-zA-Z0-9@.-_+ 
     
 - Enable IAM Auth on ADB
     - Run SQL as ADMiN: `EXEC DBMS_CLOUD_ADMIN.ENABLE_EXTERNAL_AUTHENTICATION ('OCI_IAM')`
