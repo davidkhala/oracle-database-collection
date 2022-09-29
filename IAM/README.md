@@ -14,7 +14,7 @@
 1. `CREATE USER oci_david IDENTIFIED GLOBALLY AS 'IAM_PRINCIPAL_NAME=david.yx.liu@oracle.com'`
 2. Check by `SELECT USERNAME, EXTERNAL_NAME FROM DBA_USERS WHERE AUTHENTICATION_TYPE='GLOBAL';`
 3. Run SQL `GRANT CREATE SESSION TO oci_david` to allow SQL session create (SQL Developer desktop...)
-  - By default, user has `connect`, `resource` role
+	- By default, user has `connect`, `resource` role
 
 ## Troubleshoot
 **Q: ORA-01045: user OCI_DAVID lacks CREATE SESSION privilege; logon denied**
