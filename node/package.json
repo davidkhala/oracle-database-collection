@@ -1,0 +1,11 @@
+{
+  "name": "node-oracledb-wheel",
+  "version": "0.0.5",
+  "dependencies": {
+    "oracledb": "latest"
+  },
+  "devDependencies": {
+    "mocha": "latest"
+  },
+  "type": "module"
+}
