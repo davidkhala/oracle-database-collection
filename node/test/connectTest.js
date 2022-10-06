@@ -3,29 +3,37 @@ import Builder, {ConnectStringParser} from '../connectString.js'
 import DBConfig from '../dbConfig.js'
 
 const touch = async ({password, DBUniqueName, hostDomainName, ip, connectString}) => {
+    if (!connectString) {
+        connectString = new Builder(DBUniqueName, hostDomainName).setPublicIP(ip).build()
+    }
     const config = new DBConfig({
         user: "sys",
         password,
-        connectString: connectString || new Builder(DBUniqueName, hostDomainName).setPublicIP(ip).build()
+        connectString,
     })
     const connectionBuilder = new ConnectionManager(config)
     await connectionBuilder.connect()
     await connectionBuilder.close()
 }
-describe('non-pool connection', function () {
+describe('connection', function () {
     this.timeout(0)
 
     it('from env', async () => {
         const {password, DBUniqueName, hostDomainName, ip} = process.env;
         await touch({password, DBUniqueName, hostDomainName, ip})
     })
-    it('for oas', async ()=>{
+    it('for oas pdb', async () => {
         const password = 'David-KL04#';
+        const connectString = '138.2.80.190:1521/DBSystem_pdb1.public.insecure.oraclevcn.com'
+        await touch({password, connectString})
+    })
+    it('for oas cdb: builder', async () => {
         // work within subnet
-        const DBUniqueName= 'DBSystem_oas';
-        const hostDomainName = 'analytic.public.insecure.oraclevcn.com';
-        const connectString = 'analytic.public.insecure.oraclevcn.com:1521/DBSystem_pdb1.public.insecure.oraclevcn.com'
-        await touch({password, DBUniqueName, hostDomainName, ip, connectString})
+        const password = 'David-KL04#';
+        const DBUniqueName = 'DBSystem_oas';
+        const hostDomainName = 'public.insecure.oraclevcn.com';
+        const ip = '138.2.80.190'
+        await touch({password, DBUniqueName, hostDomainName, ip})
     })
 
 

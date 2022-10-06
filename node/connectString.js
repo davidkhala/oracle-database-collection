@@ -5,18 +5,18 @@ export default class ConnectStringBuilder {
      * @param {string} hostDomainName
      */
     constructor(DBUniqueName, hostDomainName) {
-        this.setDatabaseUniqueName(DBUniqueName)
+        this.databaseUniqueName = DBUniqueName
         this.setHostDomainName(hostDomainName)
     }
 
-    /**
-     *
-     * @param {string} DBUniqueName - Or PDB name, Or application service name
-     * @returns {ConnectStringBuilder}
-     */
-    setDatabaseUniqueName(DBUniqueName) {
+    set databaseUniqueName(DBUniqueName) {
         this.DBUniqueName = DBUniqueName
-        return this
+    }
+    set pdbName(name){
+        this.DBUniqueName = name
+    }
+    set applicationServiceName(name){
+        this.DBUniqueName = name
     }
 
     get serviceName() {
