@@ -20,7 +20,7 @@ describe('non-pool connection', function () {
         await touch({password, DBUniqueName, hostDomainName, ip})
     })
     it('for oas', async ()=>{
-        const {password} = process.env;
+        const password = 'David-KL04#';
         //TODO
         const DBUniqueName= 'DBSystem_oas';
         const hostDomainName = 'analytic.public.insecure.oraclevcn.com';
