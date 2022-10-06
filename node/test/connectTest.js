@@ -21,10 +21,9 @@ describe('non-pool connection', function () {
     })
     it('for oas', async ()=>{
         const password = 'David-KL04#';
-        //TODO
+        // work within subnet
         const DBUniqueName= 'DBSystem_oas';
         const hostDomainName = 'analytic.public.insecure.oraclevcn.com';
-        const ip = '138.2.80.190';
         const connectString = 'analytic.public.insecure.oraclevcn.com:1521/DBSystem_pdb1.public.insecure.oraclevcn.com'
         await touch({password, DBUniqueName, hostDomainName, ip, connectString})
     })
