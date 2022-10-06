@@ -38,14 +38,20 @@ export default class ConnectStringBuilder {
         return this
     }
 
-    build() {
-        let FQDN
+    get FQDN(){
+
         if (this.ip) {
-            FQDN = this.ip
+            return this.ip
         } else {
-            FQDN = `${this.hostPrefix}.${this.hostDomainName}`;
+            return `${this.hostPrefix}.${this.hostDomainName}`;
         }
-        return `${FQDN}:${this.port || 1521}/${this.serviceName}`
+    }
+    build() {
+
+        return `${this.FQDN}:${this.port || 1521}/${this.serviceName}`
+    }
+    buildForAnalyticServer(){
+        return `${this.FQDN}:${this.port || 1521}:${this.serviceName}`
     }
 }
 
