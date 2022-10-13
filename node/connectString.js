@@ -71,6 +71,9 @@ export class ConnectStringParser {
             let escapeStatus = false
             for (let i = 0; i < str.length; i++) {
                 const char = str[i]
+                if(escapeStatus){
+                    continue
+                }
                 switch (char) {
                     case '(':
                         level++
