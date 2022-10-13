@@ -95,7 +95,7 @@ export class ConnectStringParser {
         const trim = str.replace(/\s/g, '')
 
         let escapeStatus = false
-        let keyStart = 0, keyEnd = 0, valueStart = 0, valueEnd = 0
+        let keyStart = 0, valueStart = 0, valueEnd = 0
         let key
         let expectValue = false, isArrayValue = false
         const result = {}
