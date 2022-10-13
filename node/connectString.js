@@ -66,11 +66,11 @@ export class ConnectStringParser {
 
 	static parse(str) {
 
-		const findEndBracket = (str) => {
+		const findEndBracket = (_) => {
 			let level = 0;
 			let escapeStatus = false;
-			for (let i = 0; i < str.length; i++) {
-				const char = str[i];
+			for (let i = 0; i < _.length; i++) {
+				const char = _[i];
 				if (escapeStatus) {
 					continue;
 				}
