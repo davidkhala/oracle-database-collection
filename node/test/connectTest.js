@@ -27,7 +27,6 @@ describe('connection', function () {
         await touch({password, connectString})
     })
     it('for oas cdb: builder', async () => {
-        // work within subnet
         const password = 'David-KL04#';
         const DBUniqueName = 'DBSystem_oas';
         const hostDomainName = 'public.insecure.oraclevcn.com';
