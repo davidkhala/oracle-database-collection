@@ -2,7 +2,8 @@
   "name": "node-oracledb-wheel",
   "version": "0.0.5",
   "dependencies": {
-    "oracledb": "latest"
+    "oracledb": "latest",
+    "@davidkhala/sql-alchemy": "latest"
   },
   "devDependencies": {
     "mocha": "latest"

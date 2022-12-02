@@ -1,5 +1,8 @@
 import assert from 'assert';
+import oracledb from 'oracledb';
+import {SQLAlchemy} from '@davidkhala/sql-alchemy/index.js';
 
+const {SYSDBA} = oracledb;
 export default class ConnectStringBuilder {
 	/**
 	 *
@@ -8,7 +11,8 @@ export default class ConnectStringBuilder {
 	 */
 	constructor(DBUniqueName, hostDomainName) {
 		this.databaseUniqueName = DBUniqueName;
-		this.setHostDomainName(hostDomainName);
+		this.hostDomainName = hostDomainName;
+		this.port = 1521;
 	}
 
 	set databaseUniqueName(DBUniqueName) {
@@ -32,11 +36,6 @@ export default class ConnectStringBuilder {
 		return this;
 	}
 
-	setHostDomainName(hostDomainName) {
-		this.hostDomainName = hostDomainName;
-		return this;
-	}
-
 	setPublicIP(ip) {
 		this.ip = ip;
 		return this;
@@ -53,11 +52,27 @@ export default class ConnectStringBuilder {
 
 	build() {
 
-		return `${this.FQDN}:${this.port || 1521}/${this.serviceName}`;
+		return `${this.FQDN}:${this.port}/${this.serviceName}`;
 	}
 
 	buildForAnalyticServer() {
-		return `${this.FQDN}:${this.port || 1521}:${this.serviceName}`;
+		return `${this.FQDN}:${this.port}:${this.serviceName}`;
+	}
+
+	buildDBConfig({user, password}) {
+		const config = {
+			user, password, connectString: this.build()
+		};
+		if (['SYS'].includes(user.toUpperCase())) {
+			config.privilege = SYSDBA;
+		}
+		return config;
+	}
+
+	buildSQLAlchemy({user, password}) {
+		const builder = new SQLAlchemy({host: this.FQDN, port: this.port, username: user, password});
+		builder._driver = 'oracle';
+		return builder.uri();
 	}
 }
 
