@@ -1,12 +1,12 @@
 import ConnectionManager from '../connection.js';
-import Builder, {ConnectStringParser} from '../connectString.js';
+import Builder, { ConnectStringParser } from '../connectString.js';
 
-const touch = async ({password, DBUniqueName, hostDomainName, ip, connectString}) => {
+const touch = async ({ user = "sys", password, DBUniqueName, hostDomainName, ip, connectString }) => {
 	if (!connectString) {
 		connectString = new Builder(DBUniqueName, hostDomainName).setPublicIP(ip).build();
 	}
 	const config = {
-		user: 'sys',
+		user,
 		password,
 		connectString,
 	};
@@ -21,7 +21,7 @@ describe('builder', function () {
 		const ip = '138.2.80.190';
 		const user = 'user';
 		const password = 'password';
-		const uri = new Builder(undefined, undefined).setPublicIP(ip).buildSQLAlchemy({user, password});
+		const uri = new Builder(undefined, undefined).setPublicIP(ip).buildSQLAlchemy({ user, password });
 		console.debug(uri);
 	});
 });
@@ -29,20 +29,32 @@ describe('connection', function () {
 	this.timeout(0);
 
 	it('from env', async () => {
-		const {password, DBUniqueName, hostDomainName, ip} = process.env;
-		await touch({password, DBUniqueName, hostDomainName, ip});
+		const { password, DBUniqueName, hostDomainName, ip } = process.env;
+		await touch({ password, DBUniqueName, hostDomainName, ip });
 	});
 	it('for oas pdb', async () => {
 		const password = 'David-KL04#';
 		const connectString = '138.2.80.190:1521/DBSystem_pdb1.public.insecure.oraclevcn.com';
-		await touch({password, connectString});
+		await touch({ password, connectString });
 	});
+	it('for oas pdb: new user `username`', async () => {
+		const password = 'Tr4v1&Pa$$w0rd';
+		const user = 'username'
+		const connectString = '138.2.80.190:1521/DBSystem_pdb1.public.insecure.oraclevcn.com';
+		await touch({ user, password, connectString })
+	})
+	it('for oas pdb: internal FQDN', async()=>{
+		const password = 'Tr4v1&Pa$$w0rd';
+		const user = 'username'
+		const connectString = 'analytic.public.insecure.oraclevcn.com:1521/DBSystem_pdb1.public.insecure.oraclevcn.com';
+		await touch({ user, password, connectString })
+	})
 	it('for oas cdb: builder', async () => {
 		const password = 'David-KL04#';
 		const DBUniqueName = 'DBSystem_oas';
 		const hostDomainName = 'public.insecure.oraclevcn.com';
 		const ip = '138.2.80.190';
-		await touch({password, DBUniqueName, hostDomainName, ip});
+		await touch({ password, DBUniqueName, hostDomainName, ip });
 	});
 
 
