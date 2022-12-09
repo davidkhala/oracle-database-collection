@@ -59,11 +59,15 @@ export default class ConnectStringBuilder {
 		return `${this.FQDN}:${this.port}:${this.serviceName}`;
 	}
 
+	static isSYSUser(user) {
+		return ['SYS'].includes(user.toUpperCase());
+	}
+
 	buildDBConfig({user, password}) {
 		const config = {
 			user, password, connectString: this.build()
 		};
-		if (['SYS'].includes(user.toUpperCase())) {
+		if (ConnectStringBuilder.isSYSUser(user)) {
 			config.privilege = SYSDBA;
 		}
 		return config;
@@ -75,8 +79,12 @@ export default class ConnectStringBuilder {
 		return builder.uri();
 	}
 
-	buildSQLPlus({user, password}) {
-		return `${user}/${password}@${this.FQDN}/${this.serviceName}`;
+	buildSQLPlus({user = 'sys', password}) {
+		let str = `${user}/${password}@${this.FQDN}/${this.serviceName}`;
+		if (ConnectStringBuilder.isSYSUser(user)) {
+			str += ' as sysdba';
+		}
+		return str;
 	}
 }
 

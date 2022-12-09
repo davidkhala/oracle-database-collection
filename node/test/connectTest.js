@@ -35,6 +35,7 @@ describe('connection', function () {
 	it('for oas pdb', async () => {
 		const password = 'David-KL04#';
 		const connectString = '138.2.80.190:1521/DBSystem_pdb1.public.insecure.oraclevcn.com';
+
 		await touch({ password, connectString });
 	});
 	it('for oas pdb: new user `username`', async () => {
