@@ -10,7 +10,7 @@ export default class ConnectStringBuilder {
 	 * @param {string} hostDomainName
 	 */
 	constructor(DBUniqueName, hostDomainName) {
-		this.databaseUniqueName = DBUniqueName;
+		this.DBUniqueName = DBUniqueName;
 		this.hostDomainName = hostDomainName;
 		this.port = 1521;
 	}
@@ -55,7 +55,7 @@ export default class ConnectStringBuilder {
 		return `${this.FQDN}:${this.port}/${this.serviceName}`;
 	}
 
-	buildForAnalyticServer() {
+	buildAnalyticServer() {
 		return `${this.FQDN}:${this.port}:${this.serviceName}`;
 	}
 
@@ -73,6 +73,10 @@ export default class ConnectStringBuilder {
 		const builder = new SQLAlchemy({host: this.FQDN, port: this.port, username: user, password});
 		builder._driver = 'oracle';
 		return builder.uri();
+	}
+
+	buildSQLPlus({user, password}) {
+		return `${user}/${password}@${this.FQDN}/${this.serviceName}`;
 	}
 }
 
