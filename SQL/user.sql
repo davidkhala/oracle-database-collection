@@ -1,6 +1,8 @@
 
 -- Create user
-CREATE USER "&username" IDENTIFIED BY "Tr4v1an&Pa$$w0rd";
+CREATE USER "&username" IDENTIFIED BY "&password";
+-- Update password
+ALTER USER "&username" IDENTIFIED BY "&password";
 
 -- Common grant privilege, tested in SQL Developer
 GRANT CONNECT, RESOURCE TO &username;
