@@ -2,5 +2,5 @@
 
 
 -- Grant Admin PRIVILEGES
-GRANT DBA TO &username;
+GRANT SYSDBA TO &username;
 Grant ALL PRIVILEGES TO &username
