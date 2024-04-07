@@ -15,16 +15,6 @@ const touch = async ({ user = "sys", password, DBUniqueName, hostDomainName, ip,
 	await connectionBuilder.connect();
 	await connectionBuilder.close();
 };
-describe('builder', function () {
-	this.timeout(0);
-	it('build sql alchemy', async () => {
-		const ip = '138.2.80.190';
-		const user = 'user';
-		const password = 'password';
-		const uri = new Builder(undefined, undefined).setPublicIP(ip).buildSQLAlchemy({ user, password });
-		console.debug(uri);
-	});
-});
 describe('connection', function () {
 	this.timeout(0);
 

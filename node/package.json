@@ -3,10 +3,12 @@
   "version": "0.0.6-alpha",
   "dependencies": {
     "oracledb": "latest",
-    "@davidkhala/sql-alchemy": "latest"
+    "@davidkhala/db": "latest"
   },
   "devDependencies": {
-    "mocha": "latest"
+    "mocha": "latest",
+    "@davidkhala/container": "latest",
+    "@davidkhala/docker": "latest"
   },
   "publishConfig": {
     "access": "public"

@@ -1,6 +1,5 @@
 import assert from 'assert';
 import oracledb from 'oracledb';
-import {SQLAlchemy} from '@davidkhala/sql-alchemy/index.js';
 
 const {SYSDBA} = oracledb;
 export default class ConnectStringBuilder {
@@ -10,25 +9,21 @@ export default class ConnectStringBuilder {
 	 * @param {string} hostDomainName
 	 */
 	constructor(DBUniqueName, hostDomainName) {
-		this.DBUniqueName = DBUniqueName;
+		this.databaseUniqueName = DBUniqueName;
 		this.hostDomainName = hostDomainName;
 		this.port = 1521;
 	}
 
-	set databaseUniqueName(DBUniqueName) {
-		this.DBUniqueName = DBUniqueName;
-	}
-
 	set pdbName(name) {
-		this.DBUniqueName = name;
+		this.databaseUniqueName = name;
 	}
 
 	set applicationServiceName(name) {
-		this.DBUniqueName = name;
+		this.databaseUniqueName = name;
 	}
 
 	get serviceName() {
-		return `${this.DBUniqueName}.${this.hostDomainName}`;
+		return `${this.databaseUniqueName}.${this.hostDomainName}`;
 	}
 
 	setHostnamePrefix(hostPrefix) {
@@ -36,10 +31,6 @@ export default class ConnectStringBuilder {
 		return this;
 	}
 
-	setPublicIP(ip) {
-		this.ip = ip;
-		return this;
-	}
 
 	get FQDN() {
 
@@ -71,12 +62,6 @@ export default class ConnectStringBuilder {
 			config.privilege = SYSDBA;
 		}
 		return config;
-	}
-
-	buildSQLAlchemy({user, password}) {
-		const builder = new SQLAlchemy({host: this.FQDN, port: this.port, username: user, password});
-		builder._driver = 'oracle';
-		return builder.uri();
 	}
 
 	buildSQLPlus({user = 'sys', password}) {
