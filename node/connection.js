@@ -1,15 +1,34 @@
 import DB from '@davidkhala/db/index.js'
 import oracledb from 'oracledb';
+import Builder from "./connectString.js";
 
 /**
  * non-pooled connection
  */
-export default class ConnectionManager extends DB {
-    constructor({domain, username, password}, connectString, logger = console, walletDir) {
-        super({domain, username, password, dialect: 'oracle', port: 1521}, connectString, logger)
+export default class Oracle extends DB {
+    /**
+     *
+     * @param domain
+     * @param username
+     * @param password
+     * @param name
+     * @param [connectString]
+     * @param [logger]
+     * @param [walletDir]
+     */
+    constructor({domain, username, password, name}, connectString, logger = console, walletDir) {
+        super({domain, username, password, port: 1521, name}, connectString, logger)
+
         if (walletDir) {
             oracledb.initOracleClient({configDir: walletDir});
         }
+    }
+
+    get connectionString() {
+        if (this._connectionString) {
+            return this._connectionString;
+        }
+        return `${this.domain}:${this.port}/${this.name}`
     }
 
 
@@ -18,9 +37,12 @@ export default class ConnectionManager extends DB {
     }
 
     async connect() {
+        const {username: user, password, domain, name, port} = this
+        const builder = new Builder(name, port)
+        builder.ip = domain
+        const config = builder.buildDBConfig({user, password})
 
-        const {username: user, password, connectionString} = this
-        this.connection = await oracledb.getConnection({user, password, connectionString});
+        this.connection = await oracledb.getConnection(config);
     }
 
     async disconnect() {

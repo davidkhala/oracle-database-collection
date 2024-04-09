@@ -1,6 +1,6 @@
 import {ContainerManager} from '@davidkhala/docker/docker.js'
 import {docker} from "./recipe.js";
-import ConnectionManager from "../connection.js";
+import Oracle from "../connection.js";
 
 describe('docker:localhost', function () {
     this.timeout(0)
@@ -8,6 +8,7 @@ describe('docker:localhost', function () {
     const password = 'password'
     const username = 'sys'
     const domain = 'localhost'
+    const name = 'FREE'
     let stop
     before(async () => {
         stop = await docker(containerManager, {password})
@@ -16,7 +17,7 @@ describe('docker:localhost', function () {
         await stop()
     })
     it('', async () => {
-        const db = new ConnectionManager({domain, username, password})
+        const db = new Oracle({domain, username, password, name})
         await db.connect()
         await db.disconnect()
 
