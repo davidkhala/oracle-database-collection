@@ -19,7 +19,7 @@
 - option `connector-port`: Oracle Connection Manager listener port
 - Setup TLS between On-Prem CMAN and target DB
     - Prerequisite: Database wallet copy and ensure Database wallet is in use 
-   - [WIP] Run CMANTLSDB.sh in on-prem connector root
+   - [WIP] issue #9
 
 
 
