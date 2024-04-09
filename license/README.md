@@ -24,7 +24,6 @@
 ## Data Masking and Subsetting Pack
 ## Cloud Management Pack for Oracle Database
 
-# Other Products
-
-## Audit Vault and Database Firewall (AVDF)
+# Other related license
+[AVDF](https://github.com/davidkhala/oracle/tree/main/AVDF)
 
