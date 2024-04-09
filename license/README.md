@@ -23,3 +23,8 @@
 ## Database Lifecycle Management Pack
 ## Data Masking and Subsetting Pack
 ## Cloud Management Pack for Oracle Database
+
+# Other Products
+
+## Audit Vault and Database Firewall (AVDF)
+
