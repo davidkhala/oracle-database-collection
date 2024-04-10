@@ -2,12 +2,12 @@
 # Enterprise Edition Options
 
 ## Multitenant
-## RAC
-### Real Application Clusters
-### Real Application Clusters One Node
-### Active Data Guard (ADG)
-### Partitioning
-### Real Application Testing (RAT)
+
+## Real Application Clusters (RAC)
+## Real Application Clusters One Node
+## Active Data Guard (ADG)
+## Partitioning
+## Real Application Testing (RAT)
 ## Advanced Compression
 ## Advanced Security (ASO)
 ## Label Security
