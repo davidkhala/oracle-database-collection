@@ -5,5 +5,8 @@ Oracle stores data **logically in tablespaces** and **physically in datafiles** 
 - The simplest Oracle database would have one tablespace and one datafile.
 - When you add another datafile to an existing tablespace, you increase the amount of disk space allocated for the corresponding tablespace
 
+default tablespace: Every Oracle database contains a `SYSTEM` tablespace 
+
+# segments, extents
 Tablespaces are divided into logical units of storage called **segments**, which are further divided into **extents**. 
 - Extents are a collection of contiguous blocks.
