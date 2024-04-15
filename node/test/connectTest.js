@@ -23,10 +23,11 @@ describe('connection', function () {
     )
   )
 `
-        console.debug(ConnectStringParser.parse(str1));
-        console.debug(ConnectStringParser.parse(str3));
-        console.debug(ConnectStringParser.parse(str2));
-        console.debug(ConnectStringParser.parse(str))
+        ConnectStringParser.parse(str1)
+        ConnectStringParser.parse(str3)
+        ConnectStringParser.parse(str2)
+        ConnectStringParser.parse(str)
+
         console.debug(ConnectStringParser.parse(varmeego))
     });
 
