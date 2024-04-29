@@ -15,9 +15,9 @@ export default class Oracle extends DB {
      * @param [connectString]
      * @param [logger]
      * @param [configDir] wallet directory
-     * @param [libDir] InstantClient directory
+     * @param [libDir] InstantClient directory. Use to enable node-oracledb Thick mode
      */
-    constructor({domain, username, password, name}, connectString, logger = console, {libDir, configDir}) {
+    constructor({domain, username, password, name, libDir, configDir}, connectString, logger = console) {
         super({domain, username, password, port: 1521, name}, connectString, logger)
 
         if (configDir || libDir) {

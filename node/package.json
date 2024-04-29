@@ -1,9 +1,12 @@
 {
   "name": "@davidkhala/oracledb-wheel",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "dependencies": {
     "oracledb": "latest",
     "@davidkhala/db": "latest"
+  },
+  "scripts": {
+    "test": "mocha test"
   },
   "devDependencies": {
     "mocha": "latest",
