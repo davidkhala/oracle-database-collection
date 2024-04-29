@@ -45,9 +45,13 @@ export default class ConnectStringBuilder {
         return ['SYS'].includes(user.toUpperCase());
     }
 
+    get connectString() {
+        return `${this.FQDN}:${this.port}/${this.serviceName}`
+    }
+
     buildDBConfig({user, password}) {
         const config = {
-            user, password, connectString: `${this.FQDN}:${this.port}/${this.serviceName}`
+            user, password, connectString: this.connectString
         };
         if (ConnectStringBuilder.isSYSUser(user)) {
             config.privilege = SYSDBA;
@@ -77,11 +81,11 @@ export class ConnectStringParser {
 
                 switch (char) {
                     case '(':
-                        if(escapeStatus)continue
+                        if (escapeStatus) continue
                         level++;
                         break;
                     case ')':
-                        if(escapeStatus)continue
+                        if (escapeStatus) continue
                         level--;
                         break;
                     case '"':
