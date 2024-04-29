@@ -1,0 +1,17 @@
+  name: nodejs
+  on: push
+  jobs:
+    test:
+      runs-on: ubuntu-latest
+      defaults:
+        run:
+          working-directory: node
+      steps:
+        - uses: davidkhala/setup-dockerode@main
+        - uses: docker/login-action@v3
+          with:
+            registry: container-registry.oracle.com
+            username: david-khala@hotmail.com
+            password: ${{ secrets.ORACLE_PASSWORD }}
+        - run: npm install
+        - run: npm test

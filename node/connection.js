@@ -14,13 +14,14 @@ export default class Oracle extends DB {
      * @param name
      * @param [connectString]
      * @param [logger]
-     * @param [walletDir]
+     * @param [configDir] wallet directory
+     * @param [libDir] InstantClient directory
      */
-    constructor({domain, username, password, name}, connectString, logger = console, walletDir) {
+    constructor({domain, username, password, name}, connectString, logger = console, {libDir, configDir}) {
         super({domain, username, password, port: 1521, name}, connectString, logger)
 
-        if (walletDir) {
-            oracledb.initOracleClient({configDir: walletDir});
+        if (configDir || libDir) {
+            oracledb.initOracleClient({configDir, libDir});
         }
     }
 

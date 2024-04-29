@@ -1,6 +1,6 @@
 {
   "name": "@davidkhala/oracledb-wheel",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "dependencies": {
     "oracledb": "latest",
     "@davidkhala/db": "latest"
