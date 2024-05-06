@@ -1,6 +1,6 @@
 # Blockchain table
 - Detects end user impersonation and insertion of data in a user's name but without their authR
-  - User need to provide their digital signature for inserting
+  - User need to provide their digital signature for inserting
 
 # Immutable table
 - released in 19c
