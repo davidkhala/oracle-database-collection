@@ -37,11 +37,14 @@ export default class Oracle extends DB {
         return this.connection.ping();
     }
 
-    async connect() {
+    async connect(connectString) {
         const {username: user, password, domain, name, port} = this
         const builder = new Builder(name, port)
         builder.ip = domain
         const config = builder.buildDBConfig({user, password})
+        if (connectString) {
+            config.connectString = connectString
+        }
 
         this.connection = await oracledb.getConnection(config);
     }

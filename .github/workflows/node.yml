@@ -15,3 +15,5 @@
             password: ${{ secrets.ORACLE_PASSWORD }}
         - run: npm install
         - run: npm test
+          env:
+            adw_password: ${{secrets.ADW_PASSWORD}}
