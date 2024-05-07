@@ -69,12 +69,15 @@ Although displayed in web side pane, these roles cannot be granted by `ADMIN` us
 - SYSUMF_ROLE
 
 # Connect
-[Connect from DataGrip](https://www.jetbrains.com/help/datagrip/connect-to-oracle-cloud-by-using-wallets.html#creating-the-oracle-oci-connection) is outdated and clumsy
-- [Discussion in ticket](https://youtrack.jetbrains.com/issue/DBE-8477)
-- TODO: try on [this](https://stackoverflow.com/questions/66017534/how-to-connect-to-oracle-21c-in-oracle-cloud-from-datagrip/66017535#66017535)
+Connect from DataGrip
+- [blog: For non-mTLS](https://haczek.blog/how-to-connect-to-oracle-autonomous-database-using-datagrip-or-sql-developer/)
+  - `Connection type`: `URL only`
+  - URL format: `jdbc:oracle:thin:@${connection_string_from_ADB}`
+  - as code: [data-grip.connect](data-grip.connect)
 
 Connect from SQL Developer
-- Wallet might be the most simple way to connect.
+- mTLS: Wallet might be the most simple way to connect 
+  
 
 
 # Advanced Security
