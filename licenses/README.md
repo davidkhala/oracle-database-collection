@@ -7,6 +7,10 @@
 ## Real Application Clusters One Node
 ## Active Data Guard (ADG)
 ## Partitioning
+[Very Large Databases (VLDB)](https://docs.oracle.com/en/database/oracle/oracle-database/23/vldbg/partition-intro.html#GUID-D01AB935-0567-42C5-B21E-FB36BA9C7BAD)
+
+[Information Lifecycle Management (ILM)](https://docs.oracle.com/en/database/oracle/oracle-database/23/vldbg/partition-intro.html#GUID-F52682CF-9EF7-4E3A-9257-8A1D331C3C87)
+
 ## Real Application Testing (RAT)
 ## Advanced Compression
 ## Advanced Security (ASO)
