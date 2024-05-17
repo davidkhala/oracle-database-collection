@@ -13,3 +13,4 @@ GRANT UNLIMITED TABLESPACE TO ${username};
 SELECT * FROM dba_users;
 
 
+select user from dual; --  get currently login user

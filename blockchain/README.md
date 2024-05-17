@@ -8,7 +8,11 @@
 - procure a countersignature for the row that is being signed by the end-user or delegate
   - countersignature: additional signature added to a document that has already been signed.
 - Can be indexed and partitioned in the normal manner.
-
+- You cannot convert a regular table to a blockchain table or vice versa
+- You cannot create blockchain tables in the CDB root or application root
+- Flashback DB still works 
+  - Flashback Database and point-in-time recovery of a database undo the changes made to all tables, including blockchain tables.
+  - Flashback blockchain table is prevented
 # Immutable table
 
 ## compared to blockchain table

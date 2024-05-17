@@ -11,11 +11,11 @@ begin
   dbms_output.put_line('Rows Deleted=' || l_rows);
 end;
 
-
+begin
 DBMS_BLOCKCHAIN_TABLE.ADD_INTERVAL_PARTITIONING(
     schema_name              => ${user},
     table_name               => ${table},
-    interval_number          IN    NUMBER,
-    interval_frequency       => ,-- Supported values are YEAR, MONTH, DAY, HOUR, and MINUTE.
-    first_high_timestamp     IN    TIMESTAMP);
-
+    interval_number          => 6,
+    interval_frequency       => 'DAY',-- Supported values are YEAR, MONTH, DAY, HOUR, and MINUTE.
+    first_high_timestamp     => SYSDATE);
+end;
