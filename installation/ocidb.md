@@ -1,7 +1,5 @@
 #  [Oracle DB in OCI Marketplace](https://cloud.oracle.com/marketplace/application/47726045)
 - As `ocidb`, `Oracle Database (Single Instance)`
-- Supported VM OS： Oracle Linux 7.9; Oracle Autonomous Linux 7.9
-- Provided versions: 12.2.0.1; 18.12.0.0; 19.9.0.0;
 - **Expose 1521 at OS firewall to allow external connection to DB**
     - [default cloud-init.sh](./cloud-init.sh)
 - Default properties
