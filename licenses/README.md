@@ -13,7 +13,13 @@
 
 ## Real Application Testing (RAT)
 ## Advanced Compression
-## Advanced Security (ASO)
+## Advanced Security
+- Transparent Data Encryption (TDE) for columns and tablespaces (including Oracle SecureFiles)
+- DataPump Export File encryption
+- RMAN backup encryption to disk
+- Encrypted Database File System (DBFS)
+- **Data Redaction** of sensitive data returned to applications (Full, Partial, Regular Expression, and Random techniques)
+
 ## Label Security
 **Not recommended**: Use Virtual Private DB than Label Security for Cost, Setup Simplicity and Performance
 ## Database Vault
