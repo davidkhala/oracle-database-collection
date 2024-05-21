@@ -23,6 +23,17 @@
 ## Label Security
 **Not recommended**: Use Virtual Private DB than Label Security for Cost, Setup Simplicity and Performance
 ## Database Vault
+incl. feats.
+- Command Rules
+- Realms
+- Separation of Duties
+- SQL Firewall
+- Trusted Paths
+
+Special license rights for **Oracle Label Security**
+- When Oracle Database Vault is configured and enabled, it configures and enables Oracle Label Security.
+- If you want to create Oracle Label Security policies, then you must purchase a full-use license for Oracle Label Security.
+
 ## OLAP (HTAP)
 ## TimesTen Application-Tier Database Cache
 ## Database In-Memory
