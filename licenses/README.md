@@ -46,5 +46,5 @@ Special license rights for **Oracle Label Security**
 ## Cloud Management Pack for Oracle Database
 
 # Other related license
-[AVDF](https://github.com/davidkhala/oracle/tree/main/AVDF)
+[Oracle Audit Vault and Database Firewall (AVDF)](https://github.com/davidkhala/oracle/tree/main/AVDF)
 
