@@ -12,6 +12,7 @@ begin
 end;
 
 begin
+-- new from 23c
 DBMS_BLOCKCHAIN_TABLE.ADD_INTERVAL_PARTITIONING(
     schema_name              => ${user},
     table_name               => ${table},
