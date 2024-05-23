@@ -19,6 +19,15 @@ class ConnectTest {
         db.connect();
         db.disconnect();
     }
+    @Test // TODO WIP
+    void localhostDockerTrueCache() throws SQLException {
+        Properties props = new Properties();
+        props.setProperty("oracle.jdbc.useTrueCacheDriverConnection", "true");
+        RawConnect db = new RawConnect("oracle:thin:@//localhost:1521/FREE", "sys", "password", props);
+        db.connect();
+        db.connection.setReadOnly(true);
+        db.disconnect();
+    }
 
     @Test
     void trueCache() throws SQLException {
