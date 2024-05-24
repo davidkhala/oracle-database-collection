@@ -5,5 +5,6 @@ https://docs.oracle.com/en/database/oracle/oracle-database/23/sbydb/managing-ora
 [Failover & switchover RTO with Active Data Guard](https://www.oracle.com/technetwork/database/availability/maa-roletransitionbp-2621582.pdf)
 
 
-[Support PDB level setup](https://blogs.oracle.com/maa/post/dgpdb-available-today)
+[DGPDB](https://blogs.oracle.com/maa/post/dgpdb-available-today)
 - released from 21c.
+- Support setup Data Guard among PDB
