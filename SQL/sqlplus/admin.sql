@@ -18,3 +18,6 @@ where ISSYS_MODIFIABLE != 'FALSE'
 -- view partitions
 select TABLE_OWNER, TABLE_NAME, PARTITION_NAME, NUM_ROWS, HIGH_VALUE, TABLESPACE_NAME
 FROM ALL_TAB_PARTITIONS;
+
+-- verify TrueCache : If CURRENT_SCN is advancing over time, it means that True Cache is moving forward as expected.
+SELECT database_role, open_mode, current_scn FROM v$database;

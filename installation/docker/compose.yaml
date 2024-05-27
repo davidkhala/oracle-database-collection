@@ -1,4 +1,3 @@
-# TODO WIP
 name: oracle
 services:
   primary:
@@ -11,8 +10,9 @@ services:
       - ENABLE_FORCE_LOGGING=true # required for true-cache
     ports:
       - 1521:1521
-    # volumes:
-    #   - ./true-cache-log:/opt/oracle/oradata
+    volumes: # With volume, start up time will last for many minutes
+      - ./true-cache-log:/opt/oracle/oradata
+
   true-cache:
     container_name: true-cache
     image: container-registry.oracle.com/database/free
@@ -22,8 +22,6 @@ services:
       - TRUE_CACHE=true
       - PRIMARY_DB_PWD_FILE=/var/tmp/orapwFREE
       - PRIMARY_DB_CONN_STR=primary:1521/FREE
-    # volumes:
-    #   - ./true-cache-log:/opt/oracle/oradata
     depends_on:
       primary:
         condition: service_healthy
