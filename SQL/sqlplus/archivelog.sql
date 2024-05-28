@@ -1,4 +1,4 @@
---enable archivelog
+-- enable archivelog
 archive log list; -- view status
 select name,log_mode from v$database; -- view status
 

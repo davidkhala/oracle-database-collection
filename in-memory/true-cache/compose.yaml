@@ -1,4 +1,4 @@
-name: oracle
+name: oracle-truecache
 services:
   primary:
     container_name: primary
@@ -12,6 +12,7 @@ services:
       - 1521:1521
     volumes: # With volume, start up time will last for many minutes
       - ./volume:/opt/oracle/oradata
+      - ./dbs:/opt/oracle/product/23ai/dbhomeFree/dbs/
 # TODO DATABASE SETUP WAS NOT SUCCESSFUL!
   true-cache:
     container_name: true-cache
