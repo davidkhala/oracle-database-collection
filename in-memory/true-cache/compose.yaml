@@ -11,7 +11,7 @@ services:
     ports:
       - 1521:1521
     volumes: # With volume, start up time will last for many minutes
-      - ./true-cache-log:/opt/oracle/oradata
+      - ./volume:/opt/oracle/oradata
 # TODO DATABASE SETUP WAS NOT SUCCESSFUL!
   true-cache:
     container_name: true-cache
@@ -23,7 +23,7 @@ services:
       - PRIMARY_DB_PWD_FILE=/opt/oracle/product/23ai/dbhomeFree/dbs/orapwFREE
       - PRIMARY_DB_CONN_STR=primary:1521/FREE
     # volumes:
-    #   - ./true-cache-log:/opt/oracle/oradata:ro
+    #   - ./volume:/opt/oracle/oradata:ro
     depends_on:
       primary:
         condition: service_healthy

@@ -3,7 +3,7 @@ password=${password:-password}
 subnet=${subnet:-tc_net}
 primary=pri-db-free
 truecache=tru-cc-free
-podman-start() {
+start() {
   echo "$password" | podman secret create oracle_pwd -
   podman network create --subnet 10.89.0.0/24 $subnet
   local PRI_DB_FREE_IP="10.89.0.0"
@@ -22,7 +22,7 @@ podman-start() {
   #   container-registry.oracle.com/database/free
 
 }
-podman-stop(){
+stop() {
   podman rm -f $primary
   podman rm -f $truecache
 }
@@ -36,10 +36,10 @@ setup() {
   dbca -configureDatabase -configureTrueCacheInstanceService -sourceDB FREE -trueCacheConnectString primary:1521/FREE -trueCacheServiceName sales_tc -serviceName FREE -sysPassword password -silent
   dbca -configureDatabase -configureTrueCacheInstanceService -sourceDB FREE -trueCacheConnectString true-cache:1521/FREE -trueCacheServiceName sales_pdb_tc -serviceName FREEPDB1 -pdbName FREEPDB1 -sysPassword $(cat /run/secrets/oracle_pwd) -silent
 }
-podman-exec() {
+exec() {
   podman exec -it $primary sqlplus sys/$password as sysdba
 }
-podman-status() {
+status() {
   podman inspect pri-db-free | jq -e ".[0].State.Health.Status"
 }
 $@
