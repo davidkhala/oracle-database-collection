@@ -8,3 +8,5 @@ services:
       - ORACLE_SID=FREE # 23c default
     ports:
       - 1521:1521
+    volumes:
+      - ./startup:/opt/oracle/scripts/startup
