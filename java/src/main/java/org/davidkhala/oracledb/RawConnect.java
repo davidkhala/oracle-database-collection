@@ -15,7 +15,7 @@ public class RawConnect {
 
     public RawConnect(String connectionString, String username, @Blind String password, Properties props) throws SQLException {
         ods = new oracle.jdbc.pool.OracleDataSource();
-        ods.setURL("jdbc:" + connectionString);
+        ods.setURL(connectionString.startsWith("jdbc")?connectionString:"jdbc:" + connectionString);
         ods.setUser(username);
         ods.setPassword(password);
         if (username.equalsIgnoreCase("SYS")) props.setProperty("internal_logon", "sysdba");
