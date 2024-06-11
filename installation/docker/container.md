@@ -1,14 +1,17 @@
 # Oracle DB in container
-- From [Oracle Container Registry](https://container-registry.oracle.com/pls/apex/f?p=113:1:921071864780:::1:P1_BUSINESS_AREA:3)
-  - `docker login container-registry.oracle.com`
-- Available version:
-  - EE: `docker pull container-registry.oracle.com/database/enterprise:latest`
+- From [Oracle Container Registry](https://container-registry.oracle.com/ords/ocr/ba/database/free)
+- Use Oracle account to `docker login container-registry.oracle.com`
+## [Free](https://container-registry.oracle.com/ords/ocr/ba/database/free)
+
+## EE
+`docker pull container-registry.oracle.com/database/enterprise:latest`
+
 - The highlighted configuration options are:
   - `ORACLE_SID`=`ORCLCDB`
   - `ORACLE_PDB`=`ORCLPDB1`
   - `ORACLE_PWD`, randomly generated
   
-## Connecting from outside of the container
+Connecting from outside of the container
 - [ORA-12637: Packet receive failed](https://franckpachot.medium.com/19c-instant-client-and-docker-1566630ab20e)
     - Solution 1: change container DB config
         ```
