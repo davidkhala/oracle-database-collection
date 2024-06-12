@@ -11,27 +11,29 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @Testcontainers
-public class LocalhostDockerTest {
+public class TestcontainersTest {
 
 
     public static final String name = "testDB";
     public static final String username = "testUser";
     public static final String password = "testPassword";
     @Container
-    private static final OracleContainer underTest= new OracleContainer("gvenzl/oracle-free:slim-faststart")
-                .withDatabaseName(name)
-                .withUsername(username).withPassword(password)
-                .withExposedPorts(1521);
+    private static final OracleContainer underTest = new OracleContainer("gvenzl/oracle-free:slim-faststart")
+            .withDatabaseName(name)
+            .withUsername(username).withPassword(password)
+            .withExposedPorts(1521);
     private static Connection connection;
     private static Statement statement;
 
     @BeforeAll
     public static void setUp() throws SQLException {
         assertTrue(underTest.isRunning());
+        String msg = "This container's image does not have a healthcheck declared, so health cannot be determined. Either amend the image or use another approach to determine whether containers are healthy.";
+        assertThrows(java.lang.RuntimeException.class, underTest::isHealthy, msg);
+
         connection = underTest.createConnection("");
         statement = connection.createStatement();
     }
