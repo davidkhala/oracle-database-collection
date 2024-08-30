@@ -14,6 +14,17 @@ SSH user `opc` has been configured to the provided public key in provision.
 find the **Database unique name** on the DB System Details page, under **Resources**, click **Databases**.
 
 
+#### Password Policy
+PDB on DB VM system, has the following password policy:
+- A minimum of 9 and a maximum of 30 characters.
+- At least two uppercase characters.
+- At least two lowercase characters.
+- At least two special characters. 
+  - The valid special characters are underscore ( _ ), a pound or hash sign (#) and dash (-).
+- At least two numeric characters (0 - 9).
+
+## Scale
+- When we change shape of DB VM, it will gracefully drain connections, and OCI console showing `UPDATING`
 
 
 
