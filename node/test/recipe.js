@@ -1,5 +1,5 @@
-import {OCI} from '@davidkhala/container/oci.js';
-import {OCIContainerOptsBuilder} from '@davidkhala/container/options.js';
+import OCI from '@davidkhala/container/oci.js';
+import OCIContainerOptsBuilder from '@davidkhala/container/options.js';
 
 /**
  * provision time 128 seconds
@@ -18,6 +18,6 @@ export async function docker(manager, {HostPort=1521, password}) {
 	opts.name = name;
 	opts.env = [`ORACLE_PWD=${password}`];
 	await manager.containerStart(opts.opts, true);
-	await manager.containerWaitForHealthy(name);
-	return async () => manager.containerDelete(name);
+	await manager.container.waitForHealthy(name);
+	return async () => manager.container.delete(name);
 }

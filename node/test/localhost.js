@@ -8,12 +8,12 @@ describe('docker:localhost', function () {
     const password = 'password'
     const domain = 'localhost'
     let stop
-    // before(async () => {
-    //     stop = await docker(containerManager, {password})
-    // })
-    // after(async () => {
-    //     await stop()
-    // })
+    before(async () => {
+        stop = await docker(containerManager, {password})
+    })
+    after(async () => {
+        await stop()
+    })
     it('CDB connect', async () => {
         const username = 'sys'
         const name = 'FREE'
