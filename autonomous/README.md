@@ -76,8 +76,11 @@ Connect from DataGrip
   - as code: [data-grip.connect](data-grip.connect) is exported by menu item `Copy Data Source`
 
 Connect from SQL Developer
-- mTLS: Wallet might be the most simple way to connect 
-  
+- Connection Type: Custom JDBC
+- Custom JDBC URL: `jdbc:oracle:thin:@${connection_string_from_ADB}`
+  - e.g. `jdbc:oracle:thin:@(description=(address=(protocol=tcps)(port=1521)(host=adb.ap-seoul-1.oraclecloud.com))(connect_data=(service_name=ukyllmqvbnkwzdy_adw_high.adb.oraclecloud.com))))`
+- Role: Default
+- Username: ADMIN
 
 
 # Advanced Security
