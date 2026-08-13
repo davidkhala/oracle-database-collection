@@ -73,7 +73,7 @@ Connect from DataGrip
 - [blog: For non-mTLS](https://haczek.blog/how-to-connect-to-oracle-autonomous-database-using-datagrip-or-sql-developer/)
   - `Connection type`: `URL only`
   - URL format: `jdbc:oracle:thin:@${connection_string_from_ADB}`
-  - as code: [data-grip.connect](data-grip.connect)
+  - as code: [data-grip.connect](data-grip.connect) is exported by menu item `Copy Data Source`
 
 Connect from SQL Developer
 - mTLS: Wallet might be the most simple way to connect 
